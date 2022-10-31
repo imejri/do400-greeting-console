@@ -29,11 +29,11 @@ pipeline{
         stage('Release') {
             steps {
                 script {
-                    sh '''
+                    sh """
                     oc login --token=sha256~elxKs3VYJobU9ZdM665MVAkhorXOarxmpEUrS47FUls --server=https://api.eu46a.prod.ole.redhat.com:6443
-                    oc project '${env.GREETING_NAMESPACE}'
+                    oc project "${env.GREETING_NAMESPACE}"
                     oc start-build greeting-console --follow --wait
-                    ''' 
+                    """
                 }
             
             }
