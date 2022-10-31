@@ -2,6 +2,10 @@ pipeline{
     agent{
         label "nodejs"
     }
+
+    environment{
+        GREETING_NAMESPACE = 'issam-greetings'
+    }
     stages{
         stage("Install dependencies"){
             steps{
@@ -25,7 +29,7 @@ pipeline{
         stage('Release') {
             steps {
             sh '''
-            oc project issam-greetings
+            oc project ${env.GREETING_NAMESPACE}
             oc start-build greeting-console --follow --wait
             ''' 
             }
