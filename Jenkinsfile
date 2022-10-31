@@ -4,7 +4,7 @@ pipeline{
     }
 
     environment{
-        GREETING_NAMESPACE = 'issam-greetings'
+        GREETING_NAMESPACE = "issam-greetings"
     }
     stages{
         stage("Install dependencies"){
