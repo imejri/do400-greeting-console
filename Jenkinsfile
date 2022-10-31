@@ -29,7 +29,7 @@ pipeline{
         stage('Release') {
             steps {
             sh '''
-            oc project "${env.GREETING_NAMESPACE}"
+            oc project '${env.GREETING_NAMESPACE}'
             oc start-build greeting-console --follow --wait
             ''' 
             }
